@@ -1,4 +1,5 @@
 import data.nat.prime
+
 open nat
 
 lemma larger_prime_a : ∀ n : ℕ, ∃ p, (prime p) ∧ (p > n) := 
@@ -32,4 +33,9 @@ begin
                          prime.not_dvd_one
                          p_prime ((nat.dvd_add_iff_right
                                     (dvd_fact p_prime.pos p_le_n)).mpr (min_fac_dvd m))))⟩⟩,
+end
+
+lemma larger_prime_c (n : ℕ) : { p // (prime p) ∧ (p > n) } := 
+begin
+ use (min_fac (fact n + 1)),
 end
